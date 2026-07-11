@@ -121,69 +121,20 @@ function initDatabase() {
     console.log('[DB] Inserindo dados iniciais de módulos...');
 
     const insertModule = db.prepare(`
-      INSERT INTO modules (title, description, video_filename, order_index, duration_label, is_full_training)
+      INSERT INTO modules (title, description, video_url, order_index, duration_label, is_full_training)
       VALUES (?, ?, ?, ?, ?, ?)
     `);
 
-    // Módulo 1 — Treinamento Completo (vídeo integral)
-    insertModule.run(
-      'Treinamento Completo',
-      'Assista todo o treinamento de uma vez. Conteúdo completo para novos associados da eAula Pós.',
-      'MANUAL DO ASSOCIADO - EAULA - COMPLETO.mp4',
-      1,
-      '30 min',
-      1
-    );
+    const vimeoUrl = 'https://vimeo.com/1209072794?share=copy&fl=sv&fe=ci';
 
-    // Módulo 2 — Introdução, Login e Página Inicial
-    insertModule.run(
-      'Introdução, Login e Página Inicial',
-      'Aprenda os primeiros passos: como acessar a plataforma, fazer login e navegar pela página inicial.',
-      'AULA 1 - INTRODUÇÃO-LOGUIN-PAGINA INICIAL.mp4',
-      2,
-      '10 min',
-      0
-    );
-
-    // Módulo 3 — Área do Aluno
-    insertModule.run(
-      'Área do Aluno',
-      'Conheça a área do aluno: funcionalidades, recursos disponíveis e como aproveitar ao máximo a plataforma.',
-      'AULA 2 - ÁREA DO ALUNO.mp4',
-      3,
-      '12 min',
-      0
-    );
-
-    // Módulo 4 — Em breve
-    insertModule.run(
-      'Módulo 3 - Em breve',
-      'Conteúdo em preparação. Em breve estará disponível.',
-      null,
-      4,
-      '—',
-      0
-    );
-
-    // Módulo 5 — Em breve
-    insertModule.run(
-      'Módulo 4 - Em breve',
-      'Conteúdo em preparação. Em breve estará disponível.',
-      null,
-      5,
-      '—',
-      0
-    );
-
-    // Módulo 6 — Perguntas Frequentes
-    insertModule.run(
-      'Perguntas Frequentes',
-      'Respostas para as dúvidas mais comuns dos novos associados.',
-      null,
-      6,
-      '—',
-      0
-    );
+    insertModule.run('Introdução e Login', '0:00 - Introdução, Login e Pagina Inicial', vimeoUrl, 1, '10 min', 0);
+    insertModule.run('Painel do Aluno', '2:08 - Como usar o Painel do Aluno', vimeoUrl, 2, '5 min', 0);
+    insertModule.run('Nova Matrícula', '07:39 - Como realizar uma nova matrícula', vimeoUrl, 3, '5 min', 0);
+    insertModule.run('Menu Acessos', '13:21 - Menu Acessos', vimeoUrl, 4, '5 min', 0);
+    insertModule.run('Cursos em Andamento', '16:12 - Menu em curso', vimeoUrl, 5, '5 min', 0);
+    insertModule.run('Menu Lateral e Financeiro', '24:09 - Menu Lateral e Financeiro', vimeoUrl, 6, '5 min', 0);
+    
+    insertModule.run('Treinamento Completo', '0:00 - Introdução, Login e Pagina Inicial\n2:08 - Como usar o Painel do Aluno\n07:39 - Como realizar uma nova matrícula\n13:21 - Menu Acessos\n16:12 - Menu em curso\n24:09 - Menu Lateral e Financeiro', vimeoUrl, 7, '30 min', 1);
 
     console.log('[DB] Módulos iniciais criados com sucesso.');
   }

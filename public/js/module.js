@@ -259,9 +259,9 @@ function seekVideo(seconds) {
                 }
                 iframe.src = src;
             } else if (src.includes('vimeo.com')) {
-                src = src.replace(/#t=\d+s/, '');
-                src += '#t=' + seconds + 's';
-                iframe.src = src;
+                // Usa a API de postMessage do Vimeo para pular o tempo sem recarregar o iframe
+                iframe.contentWindow.postMessage(JSON.stringify({ method: 'seekTo', value: seconds }), '*');
+                iframe.contentWindow.postMessage(JSON.stringify({ method: 'play' }), '*');
             } else if (src.includes('drive.google.com')) {
                 // Google Drive does not support URL timestamp seeking in iframes.
                 // We just alert the user or do nothing.

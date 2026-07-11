@@ -305,7 +305,11 @@ function getEmbedUrl(url) {
     if (ytMatch) return 'https://www.youtube.com/embed/' + ytMatch[1] + '?rel=0&modestbranding=1';
     
     const vimeoMatch = url.match(/vimeo\.com\/(?:video\/)?([0-9]+)/);
-    if (vimeoMatch) return 'https://player.vimeo.com/video/' + vimeoMatch[1] + '?title=0&byline=0&portrait=0&api=1';
+    if (vimeoMatch) {
+        const hashMatch = url.match(/(#t=\w+)/);
+        const hash = hashMatch ? hashMatch[1] : '';
+        return 'https://player.vimeo.com/video/' + vimeoMatch[1] + '?title=0&byline=0&portrait=0&api=1' + hash;
+    }
     
     // Google Drive support
     const gdriveMatch = url.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/);

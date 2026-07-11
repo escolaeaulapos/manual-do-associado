@@ -128,11 +128,11 @@ function initDatabase() {
     const vimeoUrl = 'https://vimeo.com/1209072794?share=copy&fl=sv&fe=ci';
 
     insertModule.run('Introdução e Login', '0:00 - Introdução, Login e Pagina Inicial', vimeoUrl, 1, '10 min', 0);
-    insertModule.run('Painel do Aluno', '2:08 - Como usar o Painel do Aluno', vimeoUrl, 2, '5 min', 0);
-    insertModule.run('Nova Matrícula', '07:39 - Como realizar uma nova matrícula', vimeoUrl, 3, '5 min', 0);
-    insertModule.run('Menu Acessos', '13:21 - Menu Acessos', vimeoUrl, 4, '5 min', 0);
-    insertModule.run('Cursos em Andamento', '16:12 - Menu em curso', vimeoUrl, 5, '5 min', 0);
-    insertModule.run('Menu Lateral e Financeiro', '24:09 - Menu Lateral e Financeiro', vimeoUrl, 6, '5 min', 0);
+    insertModule.run('Painel do Aluno', '2:08 - Como usar o Painel do Aluno', vimeoUrl + '#t=2m8s', 2, '5 min', 0);
+    insertModule.run('Nova Matrícula', '07:39 - Como realizar uma nova matrícula', vimeoUrl + '#t=7m39s', 3, '5 min', 0);
+    insertModule.run('Menu Acessos', '13:21 - Menu Acessos', vimeoUrl + '#t=13m21s', 4, '5 min', 0);
+    insertModule.run('Cursos em Andamento', '16:12 - Menu em curso', vimeoUrl + '#t=16m12s', 5, '5 min', 0);
+    insertModule.run('Menu Lateral e Financeiro', '24:09 - Menu Lateral e Financeiro', vimeoUrl + '#t=24m9s', 6, '5 min', 0);
     
     insertModule.run('Treinamento Completo', '0:00 - Introdução, Login e Pagina Inicial\n2:08 - Como usar o Painel do Aluno\n07:39 - Como realizar uma nova matrícula\n13:21 - Menu Acessos\n16:12 - Menu em curso\n24:09 - Menu Lateral e Financeiro', vimeoUrl, 7, '30 min', 1);
 
